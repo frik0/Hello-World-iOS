@@ -23,5 +23,6 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
             args: >
-              -Dsonar.projectKey=frik0
+              -Dsonar.organization=frik0
+              -Dsonar.projectKey=Hello-World-iOS
               -Dsonar.verbose=true
