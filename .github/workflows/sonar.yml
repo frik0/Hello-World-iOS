@@ -16,6 +16,14 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
+
+    - uses: actions/checkout@v2
+    
+    - name: mobsfscan
+      uses: MobSF/mobsfscan@main
+      with:
+        args: '. --json --output results.json'
+        
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
@@ -26,3 +34,4 @@ jobs:
               -Dsonar.organization=frik0
               -Dsonar.projectKey=frik0_Hello-World-iOS
               -Dsonar.verbose=true
+              -Dsonar.externalIssuesReportPaths='results.json'
