@@ -34,4 +34,4 @@ jobs:
               -Dsonar.organization=frik0
               -Dsonar.projectKey=frik0_Hello-World-iOS
               -Dsonar.verbose=true
-              -Dsonar.externalIssuesReportPaths='results.json'
+              -Dsonar.externalIssuesReportPaths=results.json
