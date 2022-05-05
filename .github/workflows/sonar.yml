@@ -23,6 +23,5 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
             args: >
-              #-Dsonar.organization=frik0
               -Dsonar.projectKey=frik0
               -Dsonar.verbose=true
