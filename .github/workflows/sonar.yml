@@ -19,14 +19,10 @@ jobs:
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       with:
-            projectBaseDir: "Hello World"
+            projectBaseDir: .
             args: >
               -Dsonar.organization=Frik0
               -Dsonar.projectKey=frik0
-              -Dsonar.python.coverage.reportPaths=coverage.xml
-              -Dsonar.sources=lib/
-              -Dsonar.test.exclusions=tests/**
-              -Dsonar.tests=tests/
               -Dsonar.verbose=true
       env:
         GITHUB_TOKEN: ${{ secrets.GB_TOKEN }}
