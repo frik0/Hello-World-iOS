@@ -18,12 +18,12 @@ jobs:
         fetch-depth: 0
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
             projectBaseDir: .
             args: >
               -Dsonar.organization=Frik0
               -Dsonar.projectKey=frik0
               -Dsonar.verbose=true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
