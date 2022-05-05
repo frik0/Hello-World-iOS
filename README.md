@@ -2,7 +2,7 @@
 
 Hello World Application for iOS with Swift
 
-## Usage
+## Usage 
 
 Download the repository: `git clone https://github.com/cwalk/Hello-World-iOS`
 
