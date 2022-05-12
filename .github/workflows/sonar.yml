@@ -22,7 +22,7 @@ jobs:
     - name: mobsfscan
       uses: MobSF/mobsfscan@main
       with:
-        args: '. --sonarqube --output results.json'
+        args: '. --version --sonarqube --output results.json || true'
         
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
