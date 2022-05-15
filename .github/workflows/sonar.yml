@@ -24,6 +24,11 @@ jobs:
       with:
         args: '. --version --sonarqube --output results.json || true'
         
+    - name: fix primarylocation field
+      run: |
+            sed -i 's/"primaryLocation": null,/"primaryLocation": " ",/' results.json 
+      shell: bash
+        
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
