@@ -27,6 +27,7 @@ jobs:
     - name: fix primarylocation field
       run: |
             sed -i 's/"filePath": null,/"filePath": " ",/' results.json 
+            cat results.json
       shell: bash
         
     - name: SonarCloud Scan
