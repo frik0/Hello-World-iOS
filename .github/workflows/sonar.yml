@@ -16,6 +16,22 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
+
+    - uses: actions/checkout@v2
+    
+    - name: mobsfscan
+      uses: MobSF/mobsfscan@main
+      with:
+        args: '. --version --sonarqube --output results.json || true'
+        
+    - name: fix primarylocation field
+      run: |          
+            touch dummy_project
+            awk '{gsub(/"filePath": null/,"\"filePath\":\"dummy_project\"")}1' results.json > tmp
+            mv tmp results.json
+            cat results.json
+      shell: bash
+        
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
@@ -23,6 +39,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
             args: >
-              -Dsonar.organization=Frik0
-              -Dsonar.projectKey=frik0
+              -Dsonar.organization=frik0
+              -Dsonar.projectKey=frik0_Hello-World-iOS
               -Dsonar.verbose=true
+              -Dsonar.externalIssuesReportPaths=results.json
